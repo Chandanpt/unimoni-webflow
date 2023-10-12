@@ -69,7 +69,7 @@ const Branches = () => {
         >
           Dubai
         </Typography>
-        <Grid container spacing={1} alignItems="stretch">
+        <Grid container spacing={1} alignItems="stretch" sx={{margin: "24px 0"}}>
           {data.map((item, index) => (
             <Grid
               xs={12}

@@ -17,6 +17,10 @@ const BranchCard = (props) => {
         boxShadow: "none",
       }}
     >
+      
+      <Box sx={{display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%"}}>
+      
+      <Box>
       <Typography
         variant="h3"
         sx={{
@@ -28,8 +32,6 @@ const BranchCard = (props) => {
       >
         {props.title}
       </Typography>
-      <Box sx={{display: "flex", flexDirection: "column", justifyContent: "space-between", height: "auto"}}>
-      <Box>
       <Typography
         variant="subtitle1"
         sx={{
@@ -66,7 +68,7 @@ const BranchCard = (props) => {
           padding: "8px 16px",
           borderRadius: "12px",
           width: "100%",
-          bottom: "0"
+          marginTop: "24px"
         }}
       >
         <Typography variant="body2" sx={{ color: "white", fontWeight: "700" }}>
