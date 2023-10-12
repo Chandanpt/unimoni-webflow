@@ -42,7 +42,7 @@ const Branches = () => {
         alignItems: "center",
       }}
     >
-      <Box sx={{ maxWidth: "1500px", padding: "0 100px" }}>
+      <Box sx={{ maxWidth: "1100px", padding: "0 100px" }}>
         <Typography
           variant="h2"
           sx={{
