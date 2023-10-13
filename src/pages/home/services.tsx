@@ -48,8 +48,6 @@ const SERVICE_DATA = [
 const Services = () => {
   const data = SERVICE_DATA;
 
-  console.log(data, "datu");
-
   return (
     <Box
       sx={{
