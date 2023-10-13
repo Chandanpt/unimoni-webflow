@@ -1,33 +1,7 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import BranchCard from "@/components/branchCard";
-
-const BRANCH_DATA = [
-  {
-    id: 1,
-    title: "Abu Hail Branch",
-    address: "Shop Number: 4, Abu Hail Residence, Behind Abu Hail Center",
-    contact: ["+971-4-234 64 65", "+971-4-245 25 64"],
-  },
-  {
-    id: 2,
-    title: "Abu Hail Branch",
-    address: "Shop Number: 4, Abu Hail Residence, Behind Abu Hail Center",
-    contact: ["+971-4-234 64 65"],
-  },
-  {
-    id: 3,
-    title: "Abu Hail Branch",
-    address: "Shop Number: 4, Abu Hail Residence, Behind Abu Hail Center",
-    contact: ["+971-4-234 64 65", "+971-4-245 25 64"],
-  },
-  {
-    id: 4,
-    title: "Abu Hail Branch",
-    address: "Shop Number: 4, Abu Hail Residence, Behind Abu Hail Center",
-    contact: ["+971-4-234 64 65"],
-  },
-];
+import { BRANCH_DATA } from "@/data/branchData";
 
 const Branches = () => {
   const data = BRANCH_DATA;
@@ -69,7 +43,12 @@ const Branches = () => {
         >
           Dubai
         </Typography>
-        <Grid container spacing={1} alignItems="stretch" sx={{margin: "24px 0"}}>
+        <Grid
+          container
+          spacing={1}
+          alignItems="stretch"
+          sx={{ margin: "24px 0" }}
+        >
           {data.map((item, index) => (
             <Grid
               xs={12}

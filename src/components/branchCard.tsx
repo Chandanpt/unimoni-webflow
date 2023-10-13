@@ -5,8 +5,6 @@ import Image from "next/image";
 const BranchCard = (props) => {
   const contact = props.contact;
 
-  console.log(contact, "contacywee");
-
   return (
     <Card
       sx={{
