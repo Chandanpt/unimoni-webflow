@@ -18,7 +18,7 @@ const Service = () => {
                 borderRadius: "40px",
                 backgroundColor: "#eef2ff",
                 margin: "12px",
-                height: "521px"
+                height: "700px"
               }}
             >
               <Box sx={{ padding: "24px" }}>
@@ -39,7 +39,7 @@ const Service = () => {
                 style={{
                   width: "100%",
                   height: "100%",
-                  bottom: "-4px",
+                  bottom: "60px",
                   position: "relative",
                 }}
               />
@@ -54,7 +54,7 @@ const Service = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                height: "521px"
+                height: "700px"
               }}
             >
               <Box sx={{ position: "relative" }}>
