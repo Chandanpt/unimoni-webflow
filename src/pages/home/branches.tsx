@@ -16,9 +16,8 @@ const Branches = () => {
         alignItems: "center",
       }}
     >
-      <Box sx={{ maxWidth: "1100px", padding: "0 100px" }}>
+      <Box sx={{ maxWidth: "1500px", padding: "0 100px" }}>
         <Typography
-          variant="h2"
           sx={{
             color: "#09181a",
             fontSize: "44px",
@@ -31,7 +30,6 @@ const Branches = () => {
           Branch Locator
         </Typography>
         <Typography
-          variant="h5"
           sx={{
             color: "#19468d",
             fontSize: "24px",

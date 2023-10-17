@@ -15,70 +15,72 @@ const BranchCard = (props) => {
         boxShadow: "none",
       }}
     >
-      
-      <Box sx={{display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%"}}>
-      
-      <Box>
-      <Typography
-        variant="h3"
+      <Box
         sx={{
-          color: "#09181a",
-          fontSize: "32px",
-          fontWeight: "600",
-          marginBottom: "24px",
-        }}
-      >
-        {props.title}
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        sx={{
-          color: "#09181a",
-          fontWeight: "400",
-          lineHeight: "24px",
-          marginBottom: "12px",
-        }}
-      >
-        {props.address}
-      </Typography>
-      {contact.map((item) => (
-        <Typography
-          variant="subtitle1"
-          sx={{
-            color: "#09181a",
-            fontWeight: "400",
-            lineHeight: "24px",
-            marginBottom: "12px",
-          }}
-          key={props.id}
-        >
-          Phone: {item}
-        </Typography>
-      ))}
-      </Box>
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "#2166d1",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "space-between",
-          alignItems: "center",
-          padding: "8px 16px",
-          borderRadius: "12px",
-          width: "100%",
-          marginTop: "24px"
+          height: "100%",
         }}
       >
-        <Typography variant="body2" sx={{ color: "white", fontWeight: "700" }}>
-          Get direction
-        </Typography>
-        <Image
-          src="https://uploads-ssl.webflow.com/651143670a1a2d29d7810a8e/651417d9a63b5ea8ab53dff9_route_white.svg"
-          alt="direction"
-          height={32}
-          width={32}
-        />
-      </Button>
+        <Box>
+          <Typography
+            sx={{
+              color: "#09181a",
+              fontSize: "32px",
+              fontWeight: "600",
+              marginBottom: "24px",
+            }}
+          >
+            {props.title}
+          </Typography>
+          <Typography
+            sx={{
+              color: "#09181a",
+              fontWeight: "400",
+              lineHeight: "24px",
+              marginBottom: "12px",
+            }}
+          >
+            {props.address}
+          </Typography>
+          {contact.map((item: string) => (
+            <Typography
+              sx={{
+                color: "#09181a",
+                fontWeight: "400",
+                lineHeight: "24px",
+                marginBottom: "12px",
+              }}
+              key={props.id}
+            >
+              Phone: {item}
+            </Typography>
+          ))}
+        </Box>
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#2166d1",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "8px 16px",
+            borderRadius: "12px",
+            width: "100%",
+            marginTop: "24px",
+          }}
+        >
+          <Typography sx={{ color: "white", fontWeight: "700" }}>
+            Get direction
+          </Typography>
+          <Image
+            src="https://uploads-ssl.webflow.com/651143670a1a2d29d7810a8e/651417d9a63b5ea8ab53dff9_route_white.svg"
+            alt="direction"
+            height={32}
+            width={32}
+          />
+        </Button>
       </Box>
     </Card>
   );

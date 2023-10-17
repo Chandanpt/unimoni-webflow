@@ -20,7 +20,6 @@ const Services = () => {
     >
       <Box sx={{ maxWidth: "1100px", padding: "0 100px" }}>
         <Typography
-          variant="h2"
           sx={{
             color: "white",
             fontSize: "44px",

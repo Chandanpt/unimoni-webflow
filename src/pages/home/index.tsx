@@ -3,11 +3,13 @@ import Services from './services'
 import Branches from './branches'
 import Footer from '@/components/footer'
 import Slogan from './slogan'
+import Service from './service'
 
 const Home = () => {
   return (
     <>
-    <Services />
+    <Service />
+    {/* <Services /> */}
     <Branches />
     <Slogan />
     <Footer />
