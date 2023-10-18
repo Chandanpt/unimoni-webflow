@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import Image from "next/image";
-import family from "../../assets/istockphoto-1477970026-170667a.webp";
-import svg from "../../assets/2.svg";
+import family from "../assets/istockphoto-1477970026-170667a.webp";
+import svg from "../assets/whitecurvebg.svg";
 
 const Slogan = () => {
   return (
@@ -25,9 +25,10 @@ const Slogan = () => {
         height={200}
         width={500}
         style={{
-          top: "-10px",
+          // top: "-10px",
           position: "absolute",
-          minHeight: "800px ",
+          minHeight: "1000px ",
+          left: "-250px",
           width: "100vw",
         }}
       />
@@ -55,7 +56,7 @@ const Slogan = () => {
             fontWeight="400"
             lineHeight="24px"
             marginTop="24px"
-            maxWidth="350px"
+            maxWidth="400px"
             fontSize="20px"
           >
             We provide life enablement. We transcend geography, distance, time

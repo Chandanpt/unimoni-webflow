@@ -11,7 +11,9 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@fontsource/mulish": "^5.0.13",
     "@mui/material": "^5.14.13",
+    "@next/font": "^13.5.5",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18"

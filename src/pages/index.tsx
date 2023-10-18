@@ -1,10 +1,23 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Head from "next/head";
+import Image from "next/image";
+import Service from "../sections/service";
+import Branches from "../sections/branches";
+import Slogan from "../sections/slogan";
+import Footer from "@/components/footer";
+import Services from "../sections/services";
+import { ThemeProvider, createTheme } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import '@fontsource/mulish/400.css';
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: "Mulish, sans-serif"
+    },
+  });
+
   return (
     <>
       <Head>
@@ -13,7 +26,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Service />
+        {/* <Services /> */}
+        <Branches />
+        <Slogan />
+        <Footer />
+      </ThemeProvider>
     </>
-  )
+  );
 }

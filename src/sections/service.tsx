@@ -1,8 +1,9 @@
 import { Box, Card, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import currencies from "../../assets/1.svg";
-import ding from "../../assets/4.svg";
+import currencies from "../assets/currencies.svg";
+import ding from "../assets/ding.svg";
+import flags from "../assets/flags.svg";
 
 const Service = () => {
   return (
@@ -32,7 +33,7 @@ const Service = () => {
                 </Typography>
               </Box>
               <Image
-                src="https://assets-global.website-files.com/651143670a1a2d29d7810a8e/6527cca57a061b084b6faba6_flags.svg"
+                src={flags}
                 alt="flags"
                 height={100}
                 width={100}
