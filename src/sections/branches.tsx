@@ -12,7 +12,7 @@ const Branches = () => {
         width: "100%",
         padding: "110px 0",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "center", 
         alignItems: "center",
       }}
     >

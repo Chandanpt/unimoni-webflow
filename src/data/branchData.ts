@@ -1,3 +1,11 @@
+export interface BranchDataTypes {
+  id?: number;
+  title: string;
+  address: string;
+  // contact: Array<string>;
+  contact: string[];
+}
+
 export const BRANCH_DATA = [
     {
       id: 1,

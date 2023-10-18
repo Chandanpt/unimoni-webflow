@@ -1,9 +1,10 @@
 import React from "react";
 import { Card, Typography, Box, Button } from "@mui/material";
 import Image from "next/image";
+import { BranchDataTypes } from "@/data/branchData";
 
-const BranchCard = (props) => {
-  const contact = props.contact;
+const BranchCard: React.FC<BranchDataTypes> = ({id, title, address, contact}) => {
+  // const contact = props.contact;
 
   return (
     <Card
@@ -32,7 +33,7 @@ const BranchCard = (props) => {
               marginBottom: "24px",
             }}
           >
-            {props.title}
+            {title}
           </Typography>
           <Typography
             sx={{
@@ -42,7 +43,7 @@ const BranchCard = (props) => {
               marginBottom: "12px",
             }}
           >
-            {props.address}
+            {address}
           </Typography>
           {contact.map((item: string) => (
             <Typography
@@ -52,7 +53,7 @@ const BranchCard = (props) => {
                 lineHeight: "24px",
                 marginBottom: "12px",
               }}
-              key={props.id}
+              key={id}
             >
               Phone: {item}
             </Typography>

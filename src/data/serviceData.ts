@@ -1,3 +1,10 @@
+export interface ServiceDataTypes {
+  id?: number;
+  imageurl: string;
+  title: string;
+  content: string;
+}
+
 export const SERVICE_DATA = [
     {
       id: 1,

@@ -1,8 +1,9 @@
 import React from "react";
 import { Card, Typography, Box } from "@mui/material";
 import Image from "next/image";
+import { ServiceDataTypes } from "@/data/serviceData";
 
-const ServicesCard = ({imageurl, title, content}) => {
+const ServicesCard: React.FC<ServiceDataTypes> = ({imageurl, title, content}) => {
 
 
   return (
