@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
-import BranchCard from "@/components/branchCard";
+import BranchCard from "@/components/BranchCard";
 import { BRANCH_DATA } from "@/data/branchData";
 
 const Branches = () => {

@@ -1,4 +1,4 @@
-import ServiceCard from "@/components/serviceCard";
+import ServiceCard from "@/components/ServiceCard";
 import { SERVICE_DATA } from "@/data/serviceData";
 import { Box, Typography, Grid } from "@mui/material";
 import React from "react";

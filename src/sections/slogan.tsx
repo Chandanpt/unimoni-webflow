@@ -3,8 +3,32 @@ import { Box, Typography, Grid } from "@mui/material";
 import Image from "next/image";
 import family from "../assets/istockphoto-1477970026-170667a.webp";
 import svg from "../assets/whitecurvebg.svg";
+import Carousel from "@/components/Carousel";
+import slogan1 from "../assets/1-p-800.png";
+import slogan2 from "../assets/2-p-800.png";
+import slogan3 from "../assets/3-p-800.png";
 
 const Slogan = () => {
+
+  const mySwiperStyle: React.CSSProperties = {
+    width: "530px",
+    height: "300px",
+    borderRadius: "40px"
+  };
+
+  const mySlideStyle: React.CSSProperties = {
+    // Your custom slide styles
+  };
+
+  const myImageStyle: React.CSSProperties = {
+    height: "100%",
+    width: "100%"
+  };
+
+  const images = [
+    slogan1, slogan2, slogan3
+  ];
+
   return (
     <Box
       sx={{
@@ -64,13 +88,14 @@ const Slogan = () => {
             wherever it needs to be, in the most time and cost-e cient manner.
           </Typography>
           </Box>
-          <Image
-            src={family}
-            alt="carousel"
-            height={400}
-            width={600}
-            style={{ borderRadius: "40px" }}
-          />
+          <Box>
+          <Carousel
+      swiperStyle={mySwiperStyle}
+      slideStyle={mySlideStyle}
+      imageStyle={myImageStyle}
+      images={images}
+    />
+          </Box>
       </Box>
     </Box>
   );

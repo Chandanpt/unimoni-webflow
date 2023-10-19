@@ -3,13 +3,22 @@ import Image from "next/image";
 import React from "react";
 import currencies from "../assets/currencies.svg";
 import ding from "../assets/ding.svg";
-import flags from "../assets/flags.svg";
+import flags from "../assets/Flags.svg";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 const Service = () => {
   return (
     <Box sx={{ maxWidth: "100%", display: "flex", justifyContent: "center" }}>
-      <Box sx={{ color: "#09181a", margin: "0 100px", maxWidth: "1500px" }}>
-        <Typography sx={{ fontSize: "44px", fontWeight: "900", lineHeight: "144%", padding: "0 12px", marginBottom: "70px" }}>
+      <MaxWidthWrapper>
+        <Typography
+          sx={{
+            fontSize: "44px",
+            fontWeight: "900",
+            lineHeight: "144%",
+            padding: "0 12px",
+            marginBottom: "70px",
+          }}
+        >
           Our key services
         </Typography>
         <Grid container>
@@ -19,17 +28,16 @@ const Service = () => {
                 borderRadius: "40px",
                 backgroundColor: "#eef2ff",
                 margin: "12px",
-                height: "700px"
+                height: "493px",
               }}
             >
               <Box sx={{ padding: "24px" }}>
                 <Typography sx={{ fontSize: "32px", fontWeight: "700" }}>
                   Remittances
                 </Typography>
-                <Typography sx={{ fontSize: "20px", color: "#1d4957" }}>
-                  We make it easy for merchants to accept payments. We offer the
-                  widest range of payment-acceptance modes, making it convenient
-                  for those with even the most demanding requirements
+                <Typography sx={{ fontSize: "16px", color: "#1d4957" }}>
+                  The easiest way to send money to any bank account, card,
+                  e-wallet or cash pay-out
                 </Typography>
               </Box>
               <Image
@@ -40,8 +48,7 @@ const Service = () => {
                 style={{
                   width: "100%",
                   height: "100%",
-                  bottom: "60px",
-                  position: "relative",
+                  bottom: "60px"
                 }}
               />
             </Card>
@@ -55,7 +62,7 @@ const Service = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                height: "700px"
+                height: "493px",
               }}
             >
               <Box sx={{ position: "relative" }}>
@@ -87,25 +94,34 @@ const Service = () => {
             </Card>
           </Grid>
         </Grid>
-        <Card sx={{backgroundColor: "#d6fdf6",
-                borderRadius: "40px",
-                margin: "12px", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "24px" }}>
-          <Box sx={{marginRight: "24px"}}>
-            <Typography sx={{ fontSize: "32px", fontWeight: "700", color: "#1d4957" }}>
+        <Card
+          sx={{
+            backgroundColor: "#d6fdf6",
+            borderRadius: "40px",
+            margin: "12px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "24px",
+          }}
+        >
+          <Box sx={{ marginRight: "24px" }}>
+            <Typography
+              sx={{ fontSize: "32px", fontWeight: "700", color: "#1d4957" }}
+            >
               International mobile top-up
             </Typography>
             <Typography sx={{ fontSize: "20px" }}>
-              Ding is the world&apos;s leading international mobile top-up platform.
-              With Ding, you can buy mobile top-ups for your own phone or send a
-              prepaid mobile recharge online to someone else. You can send a
-              top-up online whether it&apos;s in app or online, and you can do it at
-              any time or on any device that suits you.
+              Ding is the world&apos;s leading international mobile top-up
+              platform. With Ding, you can buy mobile top-ups for your own phone
+              or send a prepaid mobile recharge online to someone else. You can
+              send a top-up online whether it&apos;s in app or online, and you
+              can do it at any time or on any device that suits you.
             </Typography>
           </Box>
-          <Image src={ding} alt="ding" width={246}
-                  height={160}/>
+          <Image src={ding} alt="ding" width={246} height={160} />
         </Card>
-      </Box>
+      </MaxWidthWrapper>
     </Box>
   );
 };

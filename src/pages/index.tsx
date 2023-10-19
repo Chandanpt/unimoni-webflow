@@ -1,22 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
-import Service from "../sections/service";
-import Branches from "../sections/branches";
-import Slogan from "../sections/slogan";
-import Footer from "@/components/footer";
-import Services from "../sections/services";
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import '@fontsource/mulish/400.css';
-
+import Footer from "@/components/Footer";
+import Slogan from "@/sections/Slogan";
+import Branches from "@/sections/Branches";
+import Service from "@/sections/Service";
+import Services from "@/sections/Services";
+import Carousel from "@/components/Carousel";
 
 export default function Home() {
-
   const theme = createTheme({
     typography: {
-      fontFamily: "Mulish, sans-serif"
+      fontFamily: "Mulish, sans-serif",
     },
   });
+
+  
 
   return (
     <>
@@ -28,11 +28,12 @@ export default function Home() {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Service />
-        {/* <Services /> */}
-        <Branches />
+        {/* <Service />
+        <Services />
+        <Branches /> */}
         <Slogan />
-        <Footer />
+        {/* <Footer /> */}
+        
       </ThemeProvider>
     </>
   );
