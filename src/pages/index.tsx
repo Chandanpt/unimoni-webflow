@@ -8,15 +8,18 @@ import Branches from "@/sections/Branches";
 import Service from "@/sections/Service";
 import Services from "@/sections/Services";
 import Carousel from "@/components/Carousel";
+import Hero from "@/sections/Hero";
+import CurrencyExchanger from "@/components/CurrencyExchanger";
 
 export default function Home() {
   const theme = createTheme({
     typography: {
       fontFamily: "Mulish, sans-serif",
+      button: {
+        textTransform: "none",
+      },
     },
   });
-
-  
 
   return (
     <>
@@ -28,12 +31,13 @@ export default function Home() {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {/* <Service />
+        {/* <Hero />
+        <Service />
         <Services />
-        <Branches /> */}
+        <Branches />
         <Slogan />
-        {/* <Footer /> */}
-        
+        <Footer /> */}
+        <CurrencyExchanger />
       </ThemeProvider>
     </>
   );

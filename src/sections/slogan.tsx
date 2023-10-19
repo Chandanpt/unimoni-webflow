@@ -17,7 +17,7 @@ const Slogan = () => {
   };
 
   const mySlideStyle: React.CSSProperties = {
-    // Your custom slide styles
+    
   };
 
   const myImageStyle: React.CSSProperties = {

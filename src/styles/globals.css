@@ -15,3 +15,19 @@ html, body {
     margin-top: 0;
     margin-left: 0;
 }
+
+.css-17fqb86-MuiInputBase-root-MuiInput-root:before {
+    border-bottom: none;
+}
+
+.css-17fqb86-MuiInputBase-root-MuiInput-root:after {
+    border-bottom: none;
+}
+
+.css-17fqb86-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+    border-bottom: none;
+}
+
+.css-16446nw-MuiInputBase-root-MuiInput-root:before {
+    border-bottom: none;
+}

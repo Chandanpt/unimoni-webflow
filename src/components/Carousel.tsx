@@ -23,9 +23,10 @@ const Carousel: React.FC<CarouselSpecsTypes> = ({ swiperStyle, slideStyle, image
         spaceBetween={30}
         effect={'fade'}
         autoplay={{
-          delay: 2500,
+          delay: 1500,
           disableOnInteraction: false,
         }}
+        speed={1500}
         modules={[EffectFade, Autoplay]}
         className="mySwiper"
         style={swiperStyle}
