@@ -1,12 +1,12 @@
 import { CURRENCY_DATA } from "@/data/currencyData";
 import { Box, Card, Input, Typography } from "@mui/material";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { ChangeEvent, useState } from "react";
 import searchIcon from "../assets/Search 24 px.png";
 import closeIcon from "../assets/Close 16px.png";
 
 
-const CurrencySearch = () => {
+const CurrencySearch = (props) => {
   const currencyData = CURRENCY_DATA;
 
   const [filterTerm, setFilterTerm] = useState<string>("");
@@ -19,9 +19,13 @@ const CurrencySearch = () => {
     item.currency.toLowerCase().includes(filterTerm.toLowerCase())
   );
 
-  const handleItemSelected = (item: string[]) => {
-    console.log(item, "first")
-  }
+  const handleItemSelected = (item: { flagSvg: StaticImageData; currency: string; code: string }) => {
+    console.log(item, "first");
+    props.setSelectedCurrency(item);
+    props.setToggle(false);
+
+  };
+  
 
 
   return (

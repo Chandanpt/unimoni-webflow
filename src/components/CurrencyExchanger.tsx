@@ -14,22 +14,34 @@ import {
   InputAdornment,
   Input,
 } from "@mui/material";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useState, ChangeEvent } from "react";
 import India from "../assets/Property 1=India.png";
 import dropdown from "../assets/SmallArrow Buttom 16 px.png";
-import { CURRENCY_DATA } from "@/data/currencyData";
+import { CURRENCY_DATA, CurrencyDataProps } from "@/data/currencyData";
 import CurrencySearch from "./CurrencySearch";
 
-const CurrencyExchanger = () => {
+const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
+  flagSvg,
+  currency,
+  code,
+}) => {
   const [value, setValue] = useState<string>("");
   const [toggle, setToggle] = useState<boolean>(false);
+  const [selectedCurrency, setSelectedCurrency] = useState<{
+    flagSvg: StaticImageData;
+    currency: string;
+    code: string;
+    rate: number;
+  } | null>(null);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value.replace(/[^\d]/g, "").slice(0, 11);
     const formattedValue = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     setValue(formattedValue);
   };
+
+  const currencyData = CURRENCY_DATA;
 
   const toggleHandler = () => {
     setToggle(!toggle);
@@ -38,6 +50,8 @@ const CurrencyExchanger = () => {
   const handleClickOutside = () => {
     setToggle(false);
   };
+
+  console.log(selectedCurrency, "second")
 
   return (
     <Box
@@ -154,7 +168,7 @@ const CurrencyExchanger = () => {
                     // height: "120px",
                   }}
                 >
-                  <CurrencySearch />
+                  <CurrencySearch currencyData={currencyData} setSelectedCurrency={setSelectedCurrency} setToggle={setToggle} />
                 </Box>
               ) : null}
               <Card
@@ -193,9 +207,10 @@ const CurrencyExchanger = () => {
                     onClick={toggleHandler}
                   >
                     <Image
-                      src={India}
+                      src={selectedCurrency ? selectedCurrency.flagSvg.src : India}
                       alt="India"
                       width={24}
+                      height={24}
                       style={{ aspectRatio: "1", marginRight: "4px" }}
                     />
                     <Typography
@@ -206,7 +221,7 @@ const CurrencyExchanger = () => {
                         marginRight: "4px",
                       }}
                     >
-                      AED
+                      {selectedCurrency ? selectedCurrency.code : "INR"}
                     </Typography>
                     <Image
                       src={dropdown}
@@ -249,6 +264,9 @@ const CurrencyExchanger = () => {
                 borderRadius: "8px",
                 padding: "8px 16px",
                 boxShadow: "none",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center"
               }}
             >
               <Typography
@@ -262,6 +280,9 @@ const CurrencyExchanger = () => {
                 }}
               >
                 Exchange rate
+              </Typography>
+              <Typography sx={{fontSize: "16px", fontWeight: "500", color: "#09181A", lineHeight: "20.08px"}}>
+                1 AED = {selectedCurrency ? selectedCurrency.rate : 22.63}
               </Typography>
             </Card>
           </Box>
