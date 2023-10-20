@@ -52,6 +52,7 @@ const CurrencySearch = (props) => {
             placeholder="Currency you are converting from "
             fullWidth
             onChange={handleFilterChange}
+            autoFocus
           />
         </Box>
         <Image src={closeIcon} alt="Search Icon" height={16} width={16} />

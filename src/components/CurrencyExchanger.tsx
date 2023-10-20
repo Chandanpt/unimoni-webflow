@@ -26,20 +26,58 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
   currency,
   code,
 }) => {
-  const [value, setValue] = useState<string>("");
+  const [givenValue, setGivenValue] = useState<number>(0);
+  const [receivedValue, setReceivedValue] = useState<number>(0);
   const [toggle, setToggle] = useState<boolean>(false);
   const [selectedCurrency, setSelectedCurrency] = useState<{
     flagSvg: StaticImageData;
     currency: string;
     code: string;
     rate: number;
-  } | null>(null);
+  } | null>({
+    flagSvg: India,
+    currency: "Indian Rupee",
+    code: "INR",
+    rate: 22.63,
+  })
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleGivenChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value.replace(/[^\d]/g, "").slice(0, 11);
-    const formattedValue = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    setValue(formattedValue);
+    const givenNumber = parseFloat(inputValue);
+  
+    if (!isNaN(givenNumber) && isFinite(givenNumber)) {
+      setGivenValue(givenNumber);
+      if (selectedCurrency) {
+        const newReceivedValue = parseFloat((givenNumber * selectedCurrency.rate).toFixed(2));
+        setReceivedValue(newReceivedValue);
+      } else {
+        setReceivedValue(0);
+      }
+    } else {
+        setGivenValue(0);
+        setReceivedValue(0);
+    }
   };
+  
+  
+
+  const handleReceivedChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value.replace(/[^\d]/g, "").slice(0, 11);
+    const receivedNumber = parseFloat(inputValue);
+    if (!isNaN(receivedNumber) && isFinite(receivedNumber)) {
+        setReceivedValue(receivedNumber);
+
+        if (selectedCurrency) {
+            const newGivenValue = parseFloat((receivedNumber * (1 / selectedCurrency.rate)).toFixed(2)) || 0;
+            setGivenValue(newGivenValue);
+          } else {
+            setGivenValue(0);
+          }
+        } else {
+          setReceivedValue(0);
+          setGivenValue(0);
+        }
+      };
 
   const currencyData = CURRENCY_DATA;
 
@@ -67,7 +105,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
           backgroundColor: "#F1F2F4CC",
           padding: "0 16px",
           borderRadius: "16px",
-          width: "345px",
+          width: "375px",
           overflow: "visible",
         }}
       >
@@ -75,7 +113,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
           <Box>
             <Card
               sx={{
-                padding: "3px 7px",
+                padding: "6px 8px 6px 8px",
                 borderRadius: "12px",
                 margin: "16px 0",
                 boxShadow: "none",
@@ -87,7 +125,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
             >
               <Typography
                 variant="subtitle1"
-                sx={{ margin: "0 10px", fontSize: "12px", color: "#687082" }}
+                sx={{ fontSize: "12px", color: "#687082" }}
               >
                 You give
               </Typography>
@@ -95,13 +133,12 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
-                margin="0 8px"
               >
                 <Box
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    padding: "4px",
+                    padding: "4px 6px 4px 6px",
                     "&:hover": {
                       borderRadius: "8px",
                       backgroundColor: "#e0e0e0cc",
@@ -128,13 +165,13 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                 <TextField
                   id="standard-basic"
                   variant="standard"
-                  onChange={(e) => handleChange(e)}
-                  value={value}
-                  inputProps={{
-                    startAdornment: value ? (
-                      <InputAdornment position="start">&#8377;</InputAdornment>
-                    ) : undefined,
-                  }}
+                  onChange={(e) => handleGivenChange(e)}
+                  value={givenValue}
+                //   inputProps={{
+                //     startAdornment: value ? (
+                //       <InputAdornment position="start">&#8377;</InputAdornment>
+                //     ) : undefined,
+                //   }}
                   sx={{
                     "&:hover": {
                       borderRadius: "8px",
@@ -173,7 +210,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
               ) : null}
               <Card
                 sx={{
-                  padding: "3px 7px",
+                  padding: "6px 8px 6px 8px",
                   borderRadius: "12px",
                   margin: "16px 0",
                   boxShadow: "none",
@@ -183,7 +220,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
               >
                 <Typography
                   variant="subtitle1"
-                  sx={{ margin: "0 10px", fontSize: "12px", color: "#687082" }}
+                  sx={{ fontSize: "12px", color: "#687082" }}
                 >
                   To be received
                 </Typography>
@@ -191,13 +228,12 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                   display="flex"
                   justifyContent="space-between"
                   alignItems="center"
-                  margin="0 8px"
                 >
                   <Box
                     sx={{
                       display: "flex",
                       alignItems: "center",
-                      padding: "4px",
+                      padding: "4px 6px 4px 6px",
                       "&:hover": {
                         borderRadius: "8px",
                         backgroundColor: "#e0e0e0cc",
@@ -234,9 +270,9 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                   <TextField
                     id="standard-basic"
                     variant="standard"
-                    onChange={(e) => handleChange(e)}
-                    value={value}
-                    inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+                    onChange={(e) => handleReceivedChange(e)}
+                    value={receivedValue}
+                    // inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                     sx={{
                       "&:hover": {
                         borderRadius: "8px",
@@ -282,7 +318,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                 Exchange rate
               </Typography>
               <Typography sx={{fontSize: "16px", fontWeight: "500", color: "#09181A", lineHeight: "20.08px"}}>
-                1 AED = {selectedCurrency ? selectedCurrency.rate : 22.63}
+                AED 1 = {selectedCurrency ? selectedCurrency.rate : 22.63}
               </Typography>
             </Card>
           </Box>
