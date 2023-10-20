@@ -31,3 +31,11 @@ html, body {
 .css-16446nw-MuiInputBase-root-MuiInput-root:before {
     border-bottom: none;
 }
+
+.css-16446nw-MuiInputBase-root-MuiInput-root:after {
+    border-bottom: none;
+}
+
+.css-16446nw-MuiInputBase-root-MuiInput-root:hover {
+    border-bottom: none;
+}

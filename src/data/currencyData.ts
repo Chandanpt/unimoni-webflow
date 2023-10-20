@@ -7,27 +7,27 @@ import Nepal from "../assets/Property 1=Nepal.png"
 export const CURRENCY_DATA = [
     {
         flagSvg: India,
-        country: "India Rupee",
-        currencyName: "INR"
+        currency: "India Rupee",
+        code: "INR"
     },
     {
         flagSvg: Bangladesh,
-        country: "Bangladesh Taka",
-        currencyName: "BDT"
+        currency: "Bangladesh Taka",
+        code: "BDT"
     },
     {
         flagSvg: SriLanka,
-        country: "Lankan Rupee",
-        currencyName: "LKR"
+        currency: "Lankan Rupee",
+        code: "LKR"
     },
     {
         flagSvg: Philippines,
-        country: "Pesos & US Dollar",
-        currencyName: "PHP & USD"
+        currency: "Pesos & US Dollar",
+        code: "PHP & USD"
     },
     {
         flagSvg: Nepal,
-        country: "Nepali Rupee",
-        currencyName: "NPR"
+        currency: "Nepali Rupee",
+        code: "NPR"
     },
 ]
