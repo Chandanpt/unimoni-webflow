@@ -4,7 +4,6 @@ import Image from "next/image";
 import { BranchDataTypes } from "@/data/branchData";
 
 const BranchCard: React.FC<BranchDataTypes> = ({id, title, address, contact}) => {
-  // const contact = props.contact;
 
   return (
     <Card

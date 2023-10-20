@@ -20,6 +20,7 @@ import India from "../assets/Property 1=India.png";
 import dropdown from "../assets/SmallArrow Buttom 16 px.png";
 import { CURRENCY_DATA, CurrencyDataProps } from "@/data/currencyData";
 import CurrencySearch from "./CurrencySearch";
+import AED from "../assets/Component 81.png";
 
 const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
   flagSvg,
@@ -117,8 +118,6 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                 borderRadius: "12px",
                 margin: "16px 0",
                 boxShadow: "none",
-                //   transform: `${toggle && "translate(0px, 160px)"} `,
-                //   transition: "all 0.5s ease",
                 position: "relative",
                 zIndex: "2",
               }}
@@ -146,7 +145,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                   }}
                 >
                   <Image
-                    src={India}
+                    src={AED}
                     alt="India"
                     width={24}
                     style={{ aspectRatio: "1", marginRight: "4px" }}
@@ -167,11 +166,6 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                   variant="standard"
                   onChange={(e) => handleGivenChange(e)}
                   value={givenValue}
-                //   inputProps={{
-                //     startAdornment: value ? (
-                //       <InputAdornment position="start">&#8377;</InputAdornment>
-                //     ) : undefined,
-                //   }}
                   sx={{
                     "&:hover": {
                       borderRadius: "8px",
@@ -202,7 +196,6 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                     bottom: "0",
                     width: "313px",
                     zIndex: 10,
-                    // height: "120px",
                   }}
                 >
                   <CurrencySearch currencyData={currencyData} setSelectedCurrency={setSelectedCurrency} setToggle={setToggle} />
@@ -214,8 +207,6 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                   borderRadius: "12px",
                   margin: "16px 0",
                   boxShadow: "none",
-                  //   transform: `${toggle && "translate(0px, -160px)"} `,
-                  //   transition: "all 0.5s ease",
                 }}
               >
                 <Typography
@@ -272,7 +263,6 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                     variant="standard"
                     onChange={(e) => handleReceivedChange(e)}
                     value={receivedValue}
-                    // inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                     sx={{
                       "&:hover": {
                         borderRadius: "8px",

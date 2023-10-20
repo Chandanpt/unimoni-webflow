@@ -33,7 +33,6 @@ const Slogan = () => {
     <Box
       sx={{
         backgroundColor: "#19468d",
-        // backgroundColor: "#fff",
         display: "flex",
         alignItems: "center",
         padding: "110px 0",
@@ -49,7 +48,6 @@ const Slogan = () => {
         height={200}
         width={500}
         style={{
-          // top: "-10px",
           position: "absolute",
           minHeight: "1000px ",
           left: "-250px",
