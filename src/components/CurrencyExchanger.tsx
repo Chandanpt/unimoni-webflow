@@ -71,14 +71,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = () => {
   };
 
   return (
-    <Box
-      sx={{ backgroundColor: "#2166D1" }}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-      onClick={handleClickOutside}
-    >
+    
       <Card
         sx={{
           backgroundColor: "#F1F2F4CC",
@@ -333,7 +326,6 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = () => {
           rate in branch before carrying out your exchange
         </Typography>
       </Card>
-    </Box>
   );
 };
 
