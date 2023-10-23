@@ -28,7 +28,6 @@ const CurrencySearch: React.FC<CurrencySearchProps> = ({
   );
 
   const handleItemSelected = (item: { flagSvg: StaticImageData; currency: string; code: string }) => {
-    console.log(item, "first");
     setSelectedCurrency(item);
     setToggle(false);
 
@@ -66,7 +65,7 @@ const CurrencySearch: React.FC<CurrencySearchProps> = ({
         <Image src={closeIcon} alt="Search Icon" height={16} width={16} style={{cursor: "pointer"}} onClick={() => setToggle(false)}/>
       </Box>
       <Box
-        padding="8px"
+        margin="8px"
         maxHeight="213px"
         sx={{
           overflowY: "auto",
@@ -75,13 +74,28 @@ const CurrencySearch: React.FC<CurrencySearchProps> = ({
           right: "0",
           left: "0",
           bottom: "0",
+          '&::-webkit-scrollbar': {
+            width: '4px',
+            height: "16px"
+          },
+          '&::-webkit-scrollbar-track': {
+            '-webkit-box-shadow': 'none'
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#C1C1C1',
+            borderRadius: "4px",
+            outline: "none",
+          },
+          // '&::-webkit-scrollbar-button': {
+          //   height: "20px"
+          // }
         }}
       >
         {filteredData.map((item) => (
           <Box
             display="flex"
             alignItems="center"
-            sx={{cursor: "pointer"}}
+            sx={{cursor: "pointer", "&:hover": { "background-color": "#F1F2F4CC"}, borderRadius: "8px"}}
             key={item.currency}
             onClick={() => handleItemSelected(item)}
             padding="8px"
