@@ -19,28 +19,28 @@ export const CURRENCY_DATA = [
         currency: "India Rupee",
         code: "INR",
         rate: 22.63,
-        symbol: "&#8377;"
+        symbol: "₹"
     },
     {
         flagSvg: Bangladesh,
         currency: "Bangladesh Taka",
         code: "BDT",
         rate: 29.95,
-        symbol: "&#2547;",
+        symbol: "৳",
     },
     {
         flagSvg: SriLanka,
         currency: "Lankan Rupee",
         code: "LKR",
         rate: 88.28,
-        symbol: "&#2547;",
+        symbol: "₨",
     },
     {
         flagSvg: Philippines,
         currency: "Pesos",
         code: "PHP",
         rate: 15.47,
-        symbol: "&#2547;",
+        symbol: "₱",
 
     },
     {
@@ -48,6 +48,6 @@ export const CURRENCY_DATA = [
         currency: "Nepali Rupee",
         code: "NPR",
         rate: 36.19,
-        symbol: "&#2547;",
+        symbol: "₹",
     },
 ]

@@ -16,7 +16,7 @@ const CurrencySearch = (props) => {
   };
 
   const filteredData = currencyData.filter((item) =>
-    item.currency.toLowerCase().includes(filterTerm.toLowerCase())
+    item.currency.toLowerCase().includes(filterTerm.toLowerCase()) || item.code.toLowerCase().includes(filterTerm.toLowerCase())
   );
 
   const handleItemSelected = (item: { flagSvg: StaticImageData; currency: string; code: string }) => {
@@ -47,7 +47,7 @@ const CurrencySearch = (props) => {
         padding="8px"
       >
         <Box display="flex" alignItems="center" width="100%">
-          <Image src={searchIcon} alt="Search Icon" height={24} width={24} />
+          <Image src={searchIcon} alt="Search Icon" height={24} width={24} style={{marginRight: "8px"}} />
           <Input
             placeholder="Currency you are converting from "
             fullWidth
@@ -63,7 +63,7 @@ const CurrencySearch = (props) => {
         sx={{
           overflowY: "auto",
           position: "absolute",
-          top: "56px",
+          top: "50px",
           right: "0",
           left: "0",
           bottom: "0",
@@ -76,13 +76,14 @@ const CurrencySearch = (props) => {
             sx={{cursor: "pointer"}}
             key={item.currency}
             onClick={() => handleItemSelected(item)}
+            padding="8px"
           >
             <Image
               src={item.flagSvg}
               alt="India"
               height={24}
               width={24}
-              style={{ margin: "8px" }}
+              style={{ marginRight: "8px" }}
             />
             <Box>
               <Typography

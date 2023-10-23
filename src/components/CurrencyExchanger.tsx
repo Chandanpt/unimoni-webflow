@@ -26,6 +26,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
   flagSvg,
   currency,
   code,
+  symbol
 }) => {
   const [givenValue, setGivenValue] = useState<number>(0);
   const [receivedValue, setReceivedValue] = useState<number>(0);
@@ -35,11 +36,13 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
     currency: string;
     code: string;
     rate: number;
+    symbol: string;
   } | null>({
     flagSvg: India,
     currency: "Indian Rupee",
     code: "INR",
     rate: 22.63,
+    symbol: "₹"
   })
 
   const handleGivenChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -194,7 +197,8 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                   sx={{
                     position: "absolute",
                     bottom: "0",
-                    width: "313px",
+                    right: "0",
+                    left: "0",
                     zIndex: 10,
                   }}
                 >
@@ -308,7 +312,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                 Exchange rate
               </Typography>
               <Typography sx={{fontSize: "16px", fontWeight: "500", color: "#09181A", lineHeight: "20.08px"}}>
-                AED 1 = {selectedCurrency ? selectedCurrency.rate : 22.63}
+                AED 1 = {selectedCurrency ? selectedCurrency.symbol : "₹" } {selectedCurrency ? selectedCurrency.rate : 22.63}
               </Typography>
             </Card>
           </Box>
