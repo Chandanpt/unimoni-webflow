@@ -13,7 +13,7 @@ interface CurrencySearchProps {
 
 
 const CurrencySearch: React.FC<CurrencySearchProps> = ({
-  currencyData,  setSelectedCurrency, setToggle
+  setSelectedCurrency, setToggle
 }) => {
   const currenciesData = CURRENCY_DATA;
 
@@ -63,7 +63,7 @@ const CurrencySearch: React.FC<CurrencySearchProps> = ({
             autoFocus
           />
         </Box>
-        <Image src={closeIcon} alt="Search Icon" height={16} width={16} />
+        <Image src={closeIcon} alt="Search Icon" height={16} width={16} style={{cursor: "pointer"}} onClick={() => setToggle(false)}/>
       </Box>
       <Box
         padding="8px"

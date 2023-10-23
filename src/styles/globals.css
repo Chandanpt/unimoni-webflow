@@ -39,3 +39,7 @@ html, body {
 .css-16446nw-MuiInputBase-root-MuiInput-root:hover {
     border-bottom: none;
 }
+
+.css-16446nw-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+    border-bottom: none;
+}

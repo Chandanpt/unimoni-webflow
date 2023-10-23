@@ -2,7 +2,7 @@
 
 import { Box, Card, Typography, Button, TextField } from "@mui/material";
 import Image from "next/image";
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import India from "../assets/Property 1=India.png";
 import dropdown from "../assets/SmallArrow Buttom 16 px.png";
 import { CURRENCY_DATA, CurrencyDataProps } from "@/data/currencyData";
@@ -60,6 +60,11 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = () => {
   const toggleHandler = () => {
     setToggle(!toggle);
   };
+
+  // useEffect(() => {
+  //   handleGivenChange    
+  // }, [toggle])
+  
 
   const handleClickOutside = () => {
     setToggle(false);
