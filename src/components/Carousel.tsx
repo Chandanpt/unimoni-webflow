@@ -1,27 +1,38 @@
-"use client"
+"use client";
 
-import React from 'react';
-import { EffectFade, Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import Image from 'next/image';
+import React from "react";
+import { EffectFade, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Image from "next/image";
+
+interface NextImageMetrics {
+  src: string;
+  height: number;
+  width: number;
+}
 
 interface CarouselSpecsTypes {
   swiperStyle?: React.CSSProperties;
   slideStyle?: React.CSSProperties;
   imageStyle?: React.CSSProperties;
-  images: string[];
+  images: (string | NextImageMetrics)[];
 }
 
-const Carousel: React.FC<CarouselSpecsTypes> = ({ swiperStyle, slideStyle, imageStyle, images }) => {
+const Carousel: React.FC<CarouselSpecsTypes> = ({
+  swiperStyle,
+  slideStyle,
+  imageStyle,
+  images,
+}) => {
   return (
     <>
       <Swiper
         spaceBetween={30}
-        effect={'fade'}
+        effect={"fade"}
         autoplay={{
           delay: 1500,
           disableOnInteraction: false,
@@ -32,8 +43,14 @@ const Carousel: React.FC<CarouselSpecsTypes> = ({ swiperStyle, slideStyle, image
         style={swiperStyle}
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index} style={{ ...slideStyle}}>
-            <Image width={500} height={500} style={{ ...imageStyle}} src={image} alt={`Slide ${index + 1}`} />
+          <SwiperSlide key={index} style={{ ...slideStyle }}>
+            <Image
+              width={500}
+              height={500}
+              style={{ ...imageStyle }}
+              src={image}
+              alt={`Slide ${index + 1}`}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

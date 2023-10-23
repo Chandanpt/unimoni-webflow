@@ -10,6 +10,7 @@ import Services from "@/sections/Services";
 import Carousel from "@/components/Carousel";
 import Hero from "@/sections/Hero";
 import CurrencyExchanger from "@/components/CurrencyExchanger";
+import India from "../assets/Property 1=India.png";
 
 export default function Home() {
   const theme = createTheme({
@@ -37,7 +38,7 @@ export default function Home() {
         <Branches />
         <Slogan />
         <Footer /> */}
-        <CurrencyExchanger />
+        <CurrencyExchanger flagSvg={India} currency={""} code={""} />
       </ThemeProvider>
     </>
   );

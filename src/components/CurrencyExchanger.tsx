@@ -1,20 +1,7 @@
 "use client";
 
-import {
-  Box,
-  Card,
-  Typography,
-  CardActions,
-  CardContent,
-  Button,
-  FormControl,
-  InputLabel,
-  NativeSelect,
-  TextField,
-  InputAdornment,
-  Input,
-} from "@mui/material";
-import Image, { StaticImageData } from "next/image";
+import { Box, Card, Typography, Button, TextField } from "@mui/material";
+import Image from "next/image";
 import React, { useState, ChangeEvent } from "react";
 import India from "../assets/Property 1=India.png";
 import dropdown from "../assets/SmallArrow Buttom 16 px.png";
@@ -22,66 +9,51 @@ import { CURRENCY_DATA, CurrencyDataProps } from "@/data/currencyData";
 import CurrencySearch from "./CurrencySearch";
 import AED from "../assets/Component 81.png";
 
-const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
-  flagSvg,
-  currency,
-  code,
-  symbol
-}) => {
+const CurrencyExchanger: React.FC<CurrencyDataProps> = () => {
   const [givenValue, setGivenValue] = useState<number>(0);
   const [receivedValue, setReceivedValue] = useState<number>(0);
   const [toggle, setToggle] = useState<boolean>(false);
-  const [selectedCurrency, setSelectedCurrency] = useState<{
-    flagSvg: StaticImageData;
-    currency: string;
-    code: string;
-    rate: number;
-    symbol: string;
-  } | null>({
-    flagSvg: India,
-    currency: "Indian Rupee",
-    code: "INR",
-    rate: 22.63,
-    symbol: "₹"
-  })
+  const [selectedCurrency, setSelectedCurrency] =
+    useState<CurrencyDataProps | null>({
+      flagSvg: India,
+      currency: "Indian Rupee",
+      code: "INR",
+      rate: 22.63,
+      symbol: "₹",
+    });
 
-  const handleGivenChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleGivenChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const inputValue = event.target.value.replace(/[^\d]/g, "").slice(0, 11);
     const givenNumber = parseFloat(inputValue);
-  
+
     if (!isNaN(givenNumber) && isFinite(givenNumber)) {
       setGivenValue(givenNumber);
-      if (selectedCurrency) {
-        const newReceivedValue = parseFloat((givenNumber * selectedCurrency.rate).toFixed(2));
-        setReceivedValue(newReceivedValue);
-      } else {
-        setReceivedValue(0);
-      }
+      const newReceivedValue = givenNumber * (selectedCurrency?.rate || 0);
+      setReceivedValue(parseFloat(newReceivedValue.toFixed(2)));
     } else {
-        setGivenValue(0);
-        setReceivedValue(0);
+      setGivenValue(0);
+      setReceivedValue(0);
     }
   };
-  
-  
 
-  const handleReceivedChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleReceivedChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const inputValue = event.target.value.replace(/[^\d]/g, "").slice(0, 11);
     const receivedNumber = parseFloat(inputValue);
-    if (!isNaN(receivedNumber) && isFinite(receivedNumber)) {
-        setReceivedValue(receivedNumber);
 
-        if (selectedCurrency) {
-            const newGivenValue = parseFloat((receivedNumber * (1 / selectedCurrency.rate)).toFixed(2)) || 0;
-            setGivenValue(newGivenValue);
-          } else {
-            setGivenValue(0);
-          }
-        } else {
-          setReceivedValue(0);
-          setGivenValue(0);
-        }
-      };
+    if (!isNaN(receivedNumber) && isFinite(receivedNumber)) {
+      setReceivedValue(receivedNumber);
+      const newGivenValue =
+        receivedNumber * (1 / (selectedCurrency?.rate || 1));
+      setGivenValue(parseFloat(newGivenValue.toFixed(2)) || 0);
+    } else {
+      setReceivedValue(0);
+      setGivenValue(0);
+    }
+  };
 
   const currencyData = CURRENCY_DATA;
 
@@ -92,8 +64,6 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
   const handleClickOutside = () => {
     setToggle(false);
   };
-
-  console.log(selectedCurrency, "second")
 
   return (
     <Box
@@ -202,7 +172,11 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                     zIndex: 10,
                   }}
                 >
-                  <CurrencySearch currencyData={currencyData} setSelectedCurrency={setSelectedCurrency} setToggle={setToggle} />
+                  <CurrencySearch
+                    currencyData={currencyData}
+                    setSelectedCurrency={setSelectedCurrency}
+                    setToggle={setToggle}
+                  />
                 </Box>
               ) : null}
               <Card
@@ -238,7 +212,9 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                     onClick={toggleHandler}
                   >
                     <Image
-                      src={selectedCurrency ? selectedCurrency.flagSvg.src : India}
+                      src={
+                        selectedCurrency ? selectedCurrency.flagSvg.src : India
+                      }
                       alt="India"
                       width={24}
                       height={24}
@@ -296,7 +272,7 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
                 boxShadow: "none",
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
               <Typography
@@ -311,8 +287,16 @@ const CurrencyExchanger: React.FC<CurrencyDataProps> = ({
               >
                 Exchange rate
               </Typography>
-              <Typography sx={{fontSize: "16px", fontWeight: "500", color: "#09181A", lineHeight: "20.08px"}}>
-                AED 1 = {selectedCurrency ? selectedCurrency.symbol : "₹" } {selectedCurrency ? selectedCurrency.rate : 22.63}
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  color: "#09181A",
+                  lineHeight: "20.08px",
+                }}
+              >
+                AED 1 = {selectedCurrency ? selectedCurrency.symbol : "₹"}{" "}
+                {selectedCurrency ? selectedCurrency.rate : 22.63}
               </Typography>
             </Card>
           </Box>

@@ -1,13 +1,21 @@
-import { CURRENCY_DATA } from "@/data/currencyData";
+import { CURRENCY_DATA, CurrencyDataProps } from "@/data/currencyData";
 import { Box, Card, Input, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, Dispatch } from "react";
 import searchIcon from "../assets/Search 24 px.png";
 import closeIcon from "../assets/Close 16px.png";
 
+interface CurrencySearchProps {
+  currencyData: CurrencyDataProps[];
+  setSelectedCurrency : Dispatch<React.SetStateAction<CurrencyDataProps | null>>;
+  setToggle: Dispatch<React.SetStateAction<boolean>>;
+}
 
-const CurrencySearch = (props) => {
-  const currencyData = CURRENCY_DATA;
+
+const CurrencySearch: React.FC<CurrencySearchProps> = ({
+  currencyData,  setSelectedCurrency, setToggle
+}) => {
+  const currenciesData = CURRENCY_DATA;
 
   const [filterTerm, setFilterTerm] = useState<string>("");
 
@@ -15,14 +23,14 @@ const CurrencySearch = (props) => {
     setFilterTerm(event.target.value);
   };
 
-  const filteredData = currencyData.filter((item) =>
+  const filteredData = currenciesData.filter((item) =>
     item.currency.toLowerCase().includes(filterTerm.toLowerCase()) || item.code.toLowerCase().includes(filterTerm.toLowerCase())
   );
 
   const handleItemSelected = (item: { flagSvg: StaticImageData; currency: string; code: string }) => {
     console.log(item, "first");
-    props.setSelectedCurrency(item);
-    props.setToggle(false);
+    setSelectedCurrency(item);
+    setToggle(false);
 
   };
   
