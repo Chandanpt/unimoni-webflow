@@ -32,11 +32,11 @@ export default function Home() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Hero />
-        {/* <Service />
+        <Service />
         <Services />
         <Branches />
         <Slogan />
-        <Footer /> */}
+        <Footer />
       </ThemeProvider>
     </>
   );

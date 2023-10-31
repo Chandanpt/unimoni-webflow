@@ -9,8 +9,16 @@ import Image from "next/image";
 import CurrencyExchanger from "@/components/CurrencyExchanger";
 import India from "../assets/Property 1=India.png";
 import Header from "@/components/Header";
+import { getServicesData } from "@/graphql/queries";
+import { useQuery } from "@apollo/client";
+import { getStoreToken } from "@/squidex/accessToken";
 
 const Hero = () => {
+
+  const token = getStoreToken();
+  const data = getServicesData;
+
+
   const mySwiperStyle: React.CSSProperties = {
     width: "100%",
     height: "100%",
@@ -75,6 +83,15 @@ const Hero = () => {
             </Box>
           </Box>
         </Box>
+      </Box>
+      <Box>
+        {/* {data.queryServicesContents.map((service: any) => (
+          <li key={service.id}>
+            <h2>{service.data.title.iv}</h2>
+            <p>{service.data.description.iv}</p>
+            <p>ID: {service.data.id.iv}</p>
+          </li>
+        ))} */}
       </Box>
     </Box>
   );
