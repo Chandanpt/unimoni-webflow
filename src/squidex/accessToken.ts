@@ -6,15 +6,12 @@ interface TokenData {
 }
 
 export const getAccessToken = async () => {
-  const clientId = "unimoni-app:default";
-  const clientSecret = "xwcuelvutxmhmpjvc0zsd804tdubyme15aslxlo8rfmx";
-  const scope = "squidex-api";
 
   const formData = new URLSearchParams({
-    grant_type: process.env.NEXT_PUBLIC_GRANT_TYPE || "",
-    client_id: process.env.NEXT_PUBLIC_CLIENT_ID || "",
-    client_secret: process.env.NEXT_PUBLIC_CLIENT_SECRET || "",
-    scope: process.env.NEXT_PUBLIC_SCOPE || "",
+    grant_type: process.env.GRANT_TYPE || "",
+    client_id: process.env.CLIENT_ID || "",
+    client_secret: process.env.CLIENT_SECRET || "",
+    scope: process.env.SCOPE || "",
   });
   // formData.append("grant_type", process.env.NEXT_PUBLIC_GRANT_TYPE || "");
   // formData.append("client_id", process.env.NEXT_PUBLIC_CLIENT_ID || "");
@@ -23,7 +20,7 @@ export const getAccessToken = async () => {
 
   try {
     const tokenResponse = await fetch(
-      "https://cloud.squidex.io/identity-server/connect/token",
+      process.env.BASE_URL || "",
       {
         method: "POST",
         headers: {

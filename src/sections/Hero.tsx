@@ -9,15 +9,21 @@ import Image from "next/image";
 import CurrencyExchanger from "@/components/CurrencyExchanger";
 import India from "../assets/Property 1=India.png";
 import Header from "@/components/Header";
-import { getServicesData } from "@/graphql/queries";
-import { useQuery } from "@apollo/client";
-import { getStoreToken } from "@/squidex/accessToken";
+import axios from "axios";
 
 const Hero = () => {
+  const fetchToken = async () => {
+    try {
+      const response = await axios.get("/api/token");
+      const accessToken = response.data.accessToken;
 
-  const token = getStoreToken();
-  const data = getServicesData;
+      console.log("Access Token:", accessToken);
+    } catch (error) {
+      console.error("Failed to obtain access token:", error);
+    }
+  };
 
+  fetchToken();
 
   const mySwiperStyle: React.CSSProperties = {
     width: "100%",
