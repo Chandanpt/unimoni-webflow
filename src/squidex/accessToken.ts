@@ -1,21 +1,25 @@
 import { IS_SERVER } from "@/utils";
 
-
 interface TokenData {
   access_token: string;
   expires_in: number;
 }
 
-const getAccessToken = async (): Promise<TokenData> => {
+export const getAccessToken = async () => {
   const clientId = "unimoni-app:default";
   const clientSecret = "xwcuelvutxmhmpjvc0zsd804tdubyme15aslxlo8rfmx";
   const scope = "squidex-api";
 
-  const formData = new URLSearchParams();
-  formData.append("grant_type", "client_credentials");
-  formData.append("client_id", clientId);
-  formData.append("client_secret", clientSecret);
-  formData.append("scope", scope);
+  const formData = new URLSearchParams({
+    grant_type: process.env.NEXT_PUBLIC_GRANT_TYPE || "",
+    client_id: process.env.NEXT_PUBLIC_CLIENT_ID || "",
+    client_secret: process.env.NEXT_PUBLIC_CLIENT_SECRET || "",
+    scope: process.env.NEXT_PUBLIC_SCOPE || "",
+  });
+  // formData.append("grant_type", process.env.NEXT_PUBLIC_GRANT_TYPE || "");
+  // formData.append("client_id", process.env.NEXT_PUBLIC_CLIENT_ID || "");
+  // formData.append("client_secret", process.env.NEXT_PUBLIC_CLIENT_SECRET || "");
+  // formData.append("scope", process.env.NEXT_PUBLIC_SCOPE || "");
 
   try {
     const tokenResponse = await fetch(
@@ -63,9 +67,8 @@ export const getStoreToken = async () => {
 
   if (storedToken && storedExpirationTime) {
     const expirationTime = new Date(storedExpirationTime);
-    
-    if (expirationTime > new Date()) {  
-      console.log("Token is still valid:", storedToken, storedExpirationTime);
+
+    if (expirationTime > new Date()) {
       return storedToken;
     }
   }
@@ -73,7 +76,6 @@ export const getStoreToken = async () => {
   try {
     await getAccessToken();
   } catch (error) {
-    console.log(error, "error");
     throw new Error("Failed");
   }
 };
