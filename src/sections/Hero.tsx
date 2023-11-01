@@ -16,8 +16,6 @@ const Hero = () => {
     try {
       const response = await axios.get("/api/token");
       const accessToken = response.data.accessToken;
-
-      console.log("Access Token:", accessToken);
     } catch (error) {
       console.error("Failed to obtain access token:", error);
     }
