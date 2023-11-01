@@ -130,7 +130,7 @@ const Footer = () => {
                   cursor: "pointer",
                   fontSize: "12px",
                   lineHeight: "24px",
-                  textDecoration: "underline",
+                  "&:hover": { textDecoration: "underline" },
                 }}
               >
                 Unimoni India

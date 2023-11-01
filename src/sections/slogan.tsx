@@ -38,7 +38,8 @@ const Slogan = () => {
         padding: "110px 0",
         justifyContent: "center",
         position: "relative",
-        overflow: "hidden"
+        overflow: "hidden",
+        transition: "ease 5s"
       }}
     >
 

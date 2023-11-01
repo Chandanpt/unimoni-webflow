@@ -31,10 +31,10 @@ export default function Home() {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {/* <Hero />
+        <Hero />
         <Service />
-        <Services />
-        <Branches /> */}
+        {/* <Services /> */}
+        <Branches />
         <Slogan />
         <Footer />
       </ThemeProvider>
