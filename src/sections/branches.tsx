@@ -10,7 +10,6 @@ const Branches = () => {
   const data = BRANCH_DATA;
 
   const toggleBranch = () => {
-    console.log("first");
     setToggle(!toggle);
   };
 
