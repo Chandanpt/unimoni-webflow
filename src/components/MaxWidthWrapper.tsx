@@ -7,7 +7,7 @@ interface MaxWidthWrapperProps {
 
 const MaxWidthWrapper: React.FC<MaxWidthWrapperProps> = ({children}) => {
   return (
-    <Box sx={{maxWidth: "1300px", padding: "100px"}}>
+    <Box sx={{maxWidth: "1500px", padding: "100px"}}>
         {children}
     </Box>
   )

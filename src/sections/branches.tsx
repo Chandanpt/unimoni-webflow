@@ -17,7 +17,6 @@ const Branches = () => {
     <Box
       sx={{
         width: "100%",
-        padding: "110px 0",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

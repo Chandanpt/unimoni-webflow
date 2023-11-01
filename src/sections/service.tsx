@@ -2,13 +2,24 @@ import { Box, Card, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import currencies from "../assets/currencies.svg";
-import ding from "../assets/ding.svg";
-import flags from "../assets/Flags.svg";
+import payment from "../assets/srvs-ns.svg";
+import flags from "../assets/flag.png";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 const Service = () => {
   return (
-    <Box sx={{ maxWidth: "100%", display: "flex", justifyContent: "center" }}>
+    <Box
+      sx={{
+        maxWidth: "100%",
+        display: "flex",
+        justifyContent: "center",
+        borderRadius: "40px",
+        top: "-50px",
+        zIndex: "20",
+        position: "relative",
+        background: "white",
+      }}
+    >
       <MaxWidthWrapper>
         <Typography
           sx={{
@@ -28,29 +39,36 @@ const Service = () => {
                 borderRadius: "40px",
                 backgroundColor: "#eef2ff",
                 margin: "12px",
-                height: "493px",
+                height: "548px",
+                position: "relative",
+                boxShadow: "none",
               }}
             >
-              <Box sx={{ padding: "24px" }}>
-                <Typography sx={{ fontSize: "32px", fontWeight: "700" }}>
-                  Remittances
-                </Typography>
-                <Typography sx={{ fontSize: "16px", color: "#1d4957" }}>
-                  The easiest way to send money to any bank account, card,
-                  e-wallet or cash pay-out
-                </Typography>
+              <Box sx={{}}>
+                <Box sx={{ padding: "24px", zIndex: "10" }}>
+                  <Typography sx={{ fontSize: "32px", fontWeight: "700" }}>
+                    Remittances
+                  </Typography>
+                  <Typography sx={{ fontSize: "16px", color: "#1d4957" }}>
+                    The easiest way to send money to bank account, e-wallet and
+                    even cash pay-out through various bank and partner
+                    locations.
+                  </Typography>
+                </Box>
+                <Image
+                  src={flags}
+                  alt="flags"
+                  height={400}
+                  width={400}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "contain",
+                    position: "absolute",
+                    bottom: "0px",
+                  }}
+                />
               </Box>
-              <Image
-                src={flags}
-                alt="flags"
-                height={100}
-                width={100}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  bottom: "60px"
-                }}
-              />
             </Card>
           </Grid>
           <Grid md={6}>
@@ -62,7 +80,8 @@ const Service = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                height: "493px",
+                height: "548px",
+                boxShadow: "none",
               }}
             >
               <Box sx={{ position: "relative" }}>
@@ -72,23 +91,23 @@ const Service = () => {
                   width={300}
                   height={300}
                   style={{
-                    maxWidth: "70%",
-                    backgroundColor: "transparent",
+                    width: "70%",
+                    height: "auto",
+                    objectFit: "contain",
                     position: "absolute",
-                    right: "0",
-                    top: "0",
+                    top: "0px",
+                    right: "0px",
                   }}
                 />
               </Box>
-              <Box sx={{ padding: "24px" }}>
+              <Box sx={{ padding: "24px", zIndex: "10" }}>
                 <Typography sx={{ fontSize: "32px", fontWeight: "700" }}>
-                  Currency Exchange
+                  Currency <br /> Exchange
                 </Typography>
-                <Typography sx={{ fontSize: "20px" }}>
-                  We are a global marketplace for currency trading. With an
-                  extensive network of financial centres across the globe, we
-                  can offer competitive exchange rates and unmatched liquidity
-                  in all major foreign exchange markets.
+                <Typography sx={{ fontSize: "16px" }}>
+                  Choose UNIMONI for your currency exchange and discover the
+                  unique combination of exceptional service and the most
+                  favorable rates that make us the best choice.
                 </Typography>
               </Box>
             </Card>
@@ -103,23 +122,29 @@ const Service = () => {
             justifyContent: "space-between",
             alignItems: "center",
             padding: "24px",
+            boxShadow: "none",
+            position: "relative",
+            height: "200px",
           }}
         >
-          <Box sx={{ marginRight: "24px" }}>
+          <Box sx={{ marginRight: "24px", zIndex: "10" }}>
             <Typography
               sx={{ fontSize: "32px", fontWeight: "700", color: "#1d4957" }}
             >
-              International mobile top-up
+              Easy payments
             </Typography>
-            <Typography sx={{ fontSize: "20px" }}>
-              Ding is the world&apos;s leading international mobile top-up
-              platform. With Ding, you can buy mobile top-ups for your own phone
-              or send a prepaid mobile recharge online to someone else. You can
-              send a top-up online whether it&apos;s in app or online, and you
-              can do it at any time or on any device that suits you.
+            <Typography sx={{ fontSize: "16px", width: "550px" }}>
+              Our services make it easy to recharge your loved ones phones
+              globally and manage your bill payments with convenience and ease.
             </Typography>
           </Box>
-          <Image src={ding} alt="ding" width={246} height={160} />
+          <Image
+            src={payment}
+            alt="payment"
+            width={800}
+            height={800}
+            style={{ width: "500px", position: "absolute", right: "-40px" }}
+          />
         </Card>
       </MaxWidthWrapper>
     </Box>
